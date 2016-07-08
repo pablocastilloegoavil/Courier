@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>HTML5 multi-touch</title>
+  <script type='text/javascript'>
+    var canvas;
+    var ctx;
+
+
+    var lastPt = new Object();
+    var colours = ['red', 'green', 'blue', 'yellow', 'black'];
+
+    function init() {
+      var touchzone = document.getElementById("mycanvas");
+      touchzone.addEventListener("touchmove", draw, false);
+      touchzone.addEventListener("touchend", end, false);
+      canvas = document.getElementById('mycanvas');
+      ctx = canvas.getContext("2d");
+    }
+
+    function getOffset(obj){
+      var offsetLeft = 0;
+      var offsetTop = 0;
+      do {
+        if (!isNaN(obj.offsetLeft)) {
+            offsetLeft += obj.offsetLeft;
+        }
+        if (!isNaN(obj.offsetTop)) {
+            offsetTop += obj.offsetTop;
+        }
+      } while(obj = obj.offsetParent );
+      return {left: offsetLeft, top: offsetTop};
+    }
+
+
+    function draw(e) {
+      e.preventDefault();
+
+      //Iterate over all touches
+      m = document.getElementById("mycanvas").offsetTop
+
+      for(var i=0;i<e.touches.length;i++) {
+        var id = e.touches[i].identifier;
+        var offset  = getOffset(id);
+        if(lastPt[id]) {
+          ctx.beginPath();
+          ctx.moveTo(lastPt[id].x, lastPt[id].y);
+          ctx.lineTo(e.touches[i].pageX, e.touches[i].pageY-m);
+          ctx.strokeStyle = colours[id];
+          ctx.stroke();
+
+        }
+        // Store last point
+        lastPt[id] = {x:e.touches[i].pageX, y:e.touches[i].pageY-m};
+
+
+      }
+  }
+
+  function end(e) {
+    e.preventDefault();
+    for(var i=0;i<e.changedTouches.length;i++) {
+      var id = e.changedTouches[i].identifier;
+      // Terminate this touch
+      delete lastPt[id];
+    }
+  }
+
+  </script>
+  </head>
+  <body onload="init()">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos provident eius ut dolorem reiciendis suscipit ipsum vel quis modi facilis asperiores corporis consectetur cupiditate, nesciunt aliquam delectus deleniti! Iure, voluptate.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur harum beatae necessitatibus nostrum laboriosam sequi iusto nam culpa blanditiis. Rem fuga dolorum quas repudiandae facere ipsum odio vitae cupiditate sint!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis tempora at impedit voluptates eius quidem? Eaque cumque, magni nobis qui, modi dolor obcaecati sit ipsa, dolorum quas et a at. hnLorem ipsum dolor sit amet, consectetur adipisicing elit. Eius sit nulla recusandae possimus perferendis, minus praesentium maxime expedita ratione omnis ea temporibus, commodi quaerat. Eligendi qui alias ipsam corporis molestias!</p>
+    <div id="caja" style="border:3px solid black;display:inline-block">
+
+    <canvas id="mycanvas" width="300px" height="100px">
+      Canvas element not supported.
+    </canvas>
+    </div>
+  </body>
+</html>

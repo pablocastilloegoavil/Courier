@@ -1,0 +1,143 @@
+/** iconos **/
+
+@charset "UTF-8";
+@font-face {
+  font-family: "courier";
+  src:url("../fonts/courier.eot");
+  src:url("../fonts/courier.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/courier.woff") format("woff"),
+    url("../fonts/courier.ttf") format("truetype"),
+    url("../fonts/courier.svg#courier") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon]:before {
+  font-family: "courier" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "courier" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color:white;
+}
+.icon-bars:before {
+  content: "\61";
+}
+.icon-mobile:before {
+  content: "\62";
+}
+.icon-envellope-mail-streamline:before {
+  content: "\63";
+}
+.icon-package:before {
+  content: "\64";
+}
+.icon-sign-out:before {
+  content: "\65";
+}
+.icon-mail:before {
+  content: "\66";
+}
+.icon-mail-read:before {
+  content: "\67";
+}
+.icon-repo:before {
+  content: "\68";
+}
+.icon-phone:before {
+  content: "\69";
+}
+.icon-book:before {
+  content: "\6a";
+}
+.icon-user:before {
+  content: "\6b";
+}
+.icon-barcode:before {
+  content: "\6c";
+}
+.icon-user-1:before {
+  content: "\6d";
+}
+
+/** FUENTES **/
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Mono'), local('RobotoMono-Regular'), url(https://fonts.gstatic.com/s/robotomono/v4/hMqPNLsu_dywMa4C_DEpY44P5ICox8Kq3LLUNMylGO4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
+body{
+	height: 100%;
+	font-family: 'Roboto Mono', sans-serif;
+	font-size: 14px;
+	background-color: #aaa;
+	color:white;
+}
+table{
+	margin: 10px auto;
+	width: 90%;
+	background-color:rgba(0,0,255,.9) 
+}
+table, th, td {
+	border: 1px solid black;
+    border-collapse: collapse;
+    vertical-align: text-top;
+}
+th, td {
+    padding: 5px;
+}
+main{
+	padding-top: 60px;
+	height: 100%;
+	margin-bottom: 5rem;
+}
+header{
+	width: 100%;
+	line-height: 10px;
+	position: fixed;
+	margin:0;
+	display: inline-block;
+	top:0px;
+	background-color: black;
+	height: 50px;
+}
+footer{
+	width: 100%;
+	position: fixed;
+	display: block;
+	bottom:0px;
+	background-color: black;
+	height: 50px;
+}
+p{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	text-align: justify;
+}
+
+.titulo{
+	font-size: 22px;
+	text-align: center;
+	margin:20px auto;
+}
